@@ -1,0 +1,105 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+/* Headings */
+h1, h2 {
+    color: #333; /* Dark grey color */
+}
+
+h1 {
+    font-size: 28px;
+    border-bottom: 2px solid #333; /* Dark grey border */
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 22px;
+    margin-top: 40px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* Paragraphs */
+p {
+    margin: 10px 0;
+}
+
+/* Forms */
+form {
+    margin-top: 20px;
+    text-align: center; /* Center align the form */
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    color: #000; /* Black font color */
+    transition: background-color 0.3s ease;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333; /* Dark grey background */
+    color: #fff; /* White font color */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Maintain size */
+    margin: 10px; /* Space between buttons */
+    text-align: center; /* Center text */
+    width: 200px; /* Consistent width */
+}
+
+button:hover {
+    background-color: #555; /* Slightly lighter grey on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}

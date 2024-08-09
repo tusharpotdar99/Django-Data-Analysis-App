@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <link rel="stylesheet" href="{% static 'footer.css' %}">
+</head>
+<body>
+    <footer>
+        <div class="container">
+            <div class="section">
+                <h3>Contact Details</h3>
+                <p>Email: <a href="mailto:tusharpotdar99@gmail.com">tusharpotdar99@gmail.com</a></p>
+                <p>GitHub: <a href="https://github.com/tusharpotdar99" target="_blank">https://github.com/tusharpotdar99</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/tusharpotdar99" target="_blank">https://www.linkedin.com/in/tusharpotdar99</a></p>
+            </div>
+            <div class="section">
+                <h3>Quick Links</h3>
+                <p><a href="{% url 'upload_csv' %}">Home</a> | <a href="{% url 'about' %}">About</a> | <a href="{% url 'statistics_original' %}">Statistics</a></p>
+                <p><a href="{% url 'report' %}">Report</a> | <a href="{% url 'handle_missing_values' %}">Handle Missing Values</a> | <a href="{% url 'data' %}">Data</a></p>
+            </div>
+            <div class="section">
+                <p>&copy; 2024 Data Analysis Web Application</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

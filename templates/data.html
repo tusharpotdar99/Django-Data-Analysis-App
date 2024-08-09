@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Table</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'data.css' %}">
+          
+</head>
+<body>
+    <main>
+        <div class="controls">
+            <label for="row-count">Rows per page:</label>
+            <select id="row-count">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+            <button id="refresh">Refresh Table</button>
+        </div>
+
+        {% if columns %}
+            <table id="csv-data-table">
+                <thead>
+                    <tr>
+                        {% for column in columns %}
+                            <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                        <tr>
+                            {% for value in row %}
+                                <td>{{ value }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="no-data">No data available. Please upload a CSV file.</p>
+        {% endif %}
+        <br>
+
+        <div class="container">
+            <div class="links">
+                <a href="{% url 'data' %}" class="link-text link-text-hover">Back to Homepage</a>
+                <p class="description">Return to the main dashboard where you can upload and view data.</p>
+            </div>
+            <div class="links">
+                <a href="{% url 'upload_csv' %}" class="link-text link-text-hover">Upload New File</a>
+                <p class="description">Upload a new CSV file to begin data analysis and visualization.</p>
+            </div>
+            <div class="links">
+                <a href="{% url 'handle_missing_values' %}" class="link-text link-text-hover">Data Preprocessing</a>
+                <p class="description">Manage and preprocess your data by handling missing values.</p>
+            </div>
+            <div class="links">
+                <a href="{% url 'statistics_original' %}" class="link-text link-text-hover">Statistics for Dataframe</a>
+                <p class="description">View detailed statistics for the original DataFrame.</p>
+            </div>
+            <div class="links">
+                <a href="{% url 'statistics_cleaned' %}" class="link-text link-text-hover">Statistics for Cleaned Dataframe</a>
+                <p class="description">View detailed statistics for the cleaned DataFrame after preprocessing.</p>
+            </div>
+            <div class="links">
+                <a href="{% url 'about' %}" class="link-text link-text-hover">About</a>
+                <p class="description">Learn more about the application and its functionalities.</p>
+            </div>
+            <div class="links">
+                <a href="{% url 'report' %}" class="link-text link-text-hover">Detailed Report</a>
+                <p class="description">Generate a comprehensive report based on the analyzed data.</p>
+            </div>
+            <div class="links">
+                <a href="{% url 'get_stat' %}" class="link-text link-text-hover">Detailed Statistics</a>
+                <p class="description">Get more in-depth statistical analysis of the data.</p>
+            </div>
+            <div class="links">
+                <a href="{% url 'clean_stat' %}" class="link-text link-text-hover">Detailed Statistics for Cleaned Data</a>
+                <p class="description">Get detailed statistics for the cleaned data after handling missing values.</p>
+            </div>
+            <div class="links">
+                <a href="{% url 'show_plot' %}" class="link-text link-text-hover">Generate Multiple Plots</a>
+                <p class="description">Create multiple plots for data visualization.</p>
+            </div>
+            <div class="custom_plot">
+                <a href="{% url 'show_plot' %}" class="custom_link-text custom_link-text-hover">Generate Plot With Selected Column</a>
+                <p class="custom_description">Select specific columns to generate custom plots.</p>
+            </div>
+        </div>
+
+    </main>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const table = document.querySelector('#csv-data-table');
+            const headers = table.querySelectorAll('th');
+            const rowCountSelect = document.getElementById('row-count');
+            const refreshButton = document.getElementById('refresh');
+            let rows = Array.from(table.querySelectorAll('tbody tr'));
+
+            // Add sorting functionality
+            headers.forEach((header, index) => {
+                header.addEventListener('click', () => {
+                    sortTable(index);
+                });
+            });
+
+            function sortTable(columnIndex) {
+                const isAscending = header.classList.toggle('asc');
+                
+                rows.sort((a, b) => {
+                    const aText = a.children[columnIndex].textContent.trim();
+                    const bText = b.children[columnIndex].textContent.trim();
+
+                    return isAscending
+                        ? aText.localeCompare(bText, undefined, { numeric: true })
+                        : bText.localeCompare(aText, undefined, { numeric: true });
+                });
+
+                renderTable();
+            }
+
+            function renderTable() {
+                const rowsPerPage = parseInt(rowCountSelect.value);
+                const startIndex = 0;
+                const endIndex = rowsPerPage;
+                const tbody = table.querySelector('tbody');
+                
+                tbody.innerHTML = '';
+                rows.slice(startIndex, endIndex).forEach(row => tbody.appendChild(row));
+            }
+
+            rowCountSelect.addEventListener('change', renderTable);
+            refreshButton.addEventListener('click', renderTable);
+
+            renderTable(); // Initial rendering of the table
+        });
+    </script>
+</body>
+</html>
+
+{% endblock %}

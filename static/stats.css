@@ -1,0 +1,58 @@
+/* Table Styles */
+table {
+    width: 100%;
+    max-width: 1200px; /* Optional: Set a max width for the table */
+    border-collapse: collapse;
+    margin: 20px auto; /* Center the table with margin on all sides */
+    background-color: #ffffff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensure rounded corners are visible */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Table Header */
+th {
+    background-color: #343a40; /* Dark Grey */
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid #dee2e6; /* Light Grey border */
+}
+
+/* Table Rows */
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Light Grey */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff; /* White */
+}
+
+/* Table Cells */
+td {
+    padding: 12px;
+    border-top: 1px solid #dee2e6; /* Light Grey border */
+    text-align: left;
+}
+
+/* Row Hover Effect */
+tr:hover {
+    background-color: #e2e6ea; /* Slightly darker grey */
+}
+
+/* Specific Column Widths */
+table th:nth-child(1),
+table td:nth-child(1) {
+    width: 20%; /* Example width for the first column */
+}
+
+table th:nth-child(2),
+table td:nth-child(2) {
+    width: 30%; /* Example width for the second column */
+}
+
+table th:nth-child(3),
+table td:nth-child(3) {
+    width: 50%; /* Example width for the third column */
+}

@@ -1,0 +1,50 @@
+/* header.css */
+
+/* Default (White) Theme */
+:root {
+    --navbar-background: #ffffff;
+    --navbar-text-color: #333333;
+    --navbar-link-color: #007bff;
+    --navbar-link-hover-bg: #007bff;
+    --navbar-link-hover-color: #ffffff;
+}
+
+/* Grey Theme */
+[data-theme='grey'] {
+    --navbar-background: #eeeeee;
+    --navbar-text-color: #333333;
+    --navbar-link-color: #333333;
+    --navbar-link-hover-bg: #cccccc;
+    --navbar-link-hover-color: #333333;
+}
+
+.navbar {
+    background-color: var(--navbar-background);
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.navbar-brand {
+    color: var(--navbar-text-color);
+    font-weight: bold;
+    font-size: 1.6em;
+    text-decoration: none;
+}
+
+.navbar-nav .nav-link {
+    color: var(--navbar-link-color);
+    margin-left: 20px;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--navbar-link-hover-color);
+    background-color: var(--navbar-link-hover-bg);
+    border-radius: 4px;
+}
+
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path stroke="%232c3e50" stroke-width="2" d="M5 7h20M5 15h20M5 23h20"/></svg>');
+}

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis Web Application</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron mt-5">
+            <h1 class="display-4">Welcome to The Django Data Analysis App</h1>
+            <p class="lead">Welcome to the Django Data Analysis App! Our goal is to simplify data analysis and visualization by providing an easy-to-use web application.</p>
+        </div>
+
+    <div class="container main-content">
+        <p><strong>Overview:</strong> Our web application enables users to upload CSV files, perform comprehensive data analysis, and visualize the results with ease. Built using Django, this tool integrates seamlessly with pandas and matplotlib/seaborn to provide an intuitive data exploration experience.</p>
+        
+        <h2>Key Features:</h2>
+        <ul>
+            <li><strong>CSV File Upload:</strong> Easily upload your CSV files through our user-friendly form. The application temporarily stores these files for processing and analysis.</li>
+            <li><strong>Data Processing:</strong>
+                <ul>
+                    <li><strong>View Data:</strong> Instantly view the first few rows of your dataset to get a snapshot of the data.</li>
+                    <li><strong>Summary Statistics:</strong> Automatically calculate and display key statistics for numerical columns, including mean, median, and standard deviation.</li>
+                    <li><strong>Missing Values:</strong> Identify and handle missing values to ensure clean and accurate data analysis.</li>
+                </ul>
+            </li>
+            <li><strong>Data Visualization:</strong>
+                <ul>
+                    <li><strong>Histograms:</strong> Generate histograms for numerical columns to visualize the distribution of your data.</li>
+                    <li><strong>Plots:</strong> Create and view various plots (histograms, scatterplots, barplots) directly on the web interface for a better understanding of your dataset.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>How It Works:</h2>
+        <ol>
+            <li><strong>Upload a CSV File:</strong> Use the upload form to submit your CSV file.</li>
+            <li><strong>View and Analyze:</strong> Access detailed views of your data and statistics through our application.</li>
+            <li><strong>Generate Plots:</strong> Select and create visualizations to explore different aspects of your data.</li>
+            <li><strong>Explore Results:</strong> Review the analysis and visualizations on dedicated pages to gain insights and make data-driven decisions.</li>
+        </ol>
+
+        <h2>Get Started:</h2>
+        <p>Upload your CSV file and start exploring your data today!</p>
+
+        <div class="form-container">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="csv_file">Upload CSV File:</label>
+                <input type="file" id="csv_file" name="csv_file" accept=".csv" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Report - Data Analysis App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'report.css' %}">
+ 
+
+</head>
+<body>
+
+    <div class="container main-content">
+        <h2>Project Overview</h2>
+        <p><strong>Creator:</strong> Tushar Potdar</p>
+        <p><strong>Project Name:</strong> Data Analysis App</p>
+        <p>This project is a web-based application designed to simplify the process of analyzing and visualizing data. Users can upload CSV files, perform various data analysis tasks, and generate insightful visualizations. The application is built using modern technologies to ensure a smooth and efficient data analysis experience.</p>
+
+        <h2>Technologies Used</h2>
+        <ul>
+            <li><strong>Django:</strong> A high-level Python web framework used to build the web application, providing a clean and efficient way to develop and maintain the app.</li>
+            <li><strong>pandas:</strong> A powerful library for data manipulation and analysis, allowing for easy handling of large datasets and complex operations.</li>
+            <li><strong>numpy:</strong> A core library for scientific computing in Python, essential for numerical operations and data manipulation.</li>
+            <li><strong>matplotlib:</strong> A comprehensive plotting library that helps in creating various types of static, animated, and interactive visualizations.</li>
+            <li><strong>seaborn:</strong> An extension of matplotlib, used for statistical data visualization, providing high-level functions for generating attractive and informative graphics.</li>
+        </ul>
+
+        <h2>Key Features</h2>
+        <ul>
+            <li><strong>CSV File Upload:</strong> Users can upload CSV files directly from their local system. The application supports various file formats and ensures proper validation of file types.</li>
+            <li><strong>Initial Data Preview:</strong> Displays the first few rows of the uploaded CSV file, giving users a quick overview of the data structure and content.</li>
+            <li><strong>Summary Statistics:</strong> Calculates and presents key statistical measures including mean, median, standard deviation, and more for numerical columns.</li>
+            <li><strong>Missing Values Handling:</strong> Identifies and provides options to handle missing values in the dataset, ensuring data integrity and completeness.</li>
+            <li><strong>Data Visualization:</strong> Offers a variety of plot types, including histograms, scatterplots, and bar plots, to visualize and interpret data effectively.</li>
+            <li><strong>Interactive User Interface:</strong> Features a modern and user-friendly interface that enhances user experience and makes data analysis accessible to everyone.</li>
+        </ul>
+
+        <h2>Future Enhancements</h2>
+        <ul>
+            <li><strong>Advanced Analytics:</strong> Plans to integrate more advanced analytical tools and machine learning features for deeper insights and predictive analysis.</li>
+            <li><strong>Enhanced Visualization Options:</strong> Development of more interactive and customizable visualization tools to improve data exploration.</li>
+            <li><strong>Data Export:</strong> Implementation of features to export analysis results and visualizations in various formats like PDF and Excel for better reporting.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
+
+{% endblock %}

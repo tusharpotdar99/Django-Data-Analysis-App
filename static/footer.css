@@ -1,0 +1,38 @@
+/* Footer Styles */
+footer {
+    background-color: #f0f0f0; /* Light grey background */
+    color: #333; /* Dark grey text */
+    text-align: center;
+    padding: 2em 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+footer .section {
+    margin-bottom: 1em;
+}
+
+footer .section h3 {
+    margin: 0 0 0.5em;
+    font-size: 16px;
+    color: #333; /* Dark grey for headers */
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+footer a {
+    color: #333; /* Dark grey links */
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #3498db; /* Highlight link color on hover */
+}

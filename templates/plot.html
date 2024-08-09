@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Plot Type</title>
+    <link rel="stylesheet" href="{% static 'plot.css' %}">
+</head>
+<body>
+    <main>
+        <form method="POST" action="{% url 'show_plot' %}">
+            {% csrf_token %}
+            <label for="plotType">Choose a plot type:</label>
+            <select id="plotType" name="action" required>
+                <option value="scatterplot">Scatter Plot</option>
+                <option value="barplot">Bar Plot</option>
+                <option value="histogram">Histogram</option>
+                <option value="kdeplot">KDE Plot</option>
+                <option value="piechart">Pie Plot</option>
+                <option value="boxplot">Box Plot</option>
+                <option value="heatmap">Heatmap for correlation</option>
+                <option value="lineplot">Line Plot</option>
+            </select>
+            <button type="submit">Generate Plot</button>
+        </form>
+
+        <div class="container">
+            {% if image_data %}
+                <h1>Plot: {{ plot_type }}</h1> <!-- Display selected plot type -->
+                <div class="zoom-container">
+                    <img src="data:image/png;base64,{{ image_data|safe }}" alt="Plot" class="plot-img">
+                </div>
+            {% else %}
+                <p>No plot generated yet.</p>
+            {% endif %}
+            <a href="{% url 'data' %}" class="back-link">Back to Homepage</a>
+        </div>
+    </main>
+
+</body>
+</html>
+{% endblock %}

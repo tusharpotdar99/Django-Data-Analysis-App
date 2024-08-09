@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Data Analysis Web Application</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+
+
+</head>
+<body>
+
+
+    <div class="container main-content">
+        <h2>Welcome to Our Data Analysis Web Application</h2>
+        <p>Our Data Analysis Web Application is designed to simplify the process of analyzing and visualizing data. Built with the latest technologies, it provides an intuitive interface that makes data exploration accessible to everyone, from beginners to experts.</p>
+        
+        <h2>Our Mission</h2>
+        <p>We aim to empower users with the tools they need to turn raw data into meaningful insights. Our application leverages powerful data analysis libraries and modern web technologies to provide a seamless experience for exploring, analyzing, and visualizing data.</p>
+        
+        <h2>Technology Stack</h2>
+        <ul>
+            <li><strong>Django:</strong> A high-level Python web framework that encourages rapid development and clean, pragmatic design.</li>
+            <li><strong>pandas:</strong> A powerful data manipulation and analysis library for Python.</li>
+            <li><strong>numpy:</strong> A fundamental package for scientific computing with Python, providing support for large, multi-dimensional arrays and matrices.</li>
+            <li><strong>matplotlib:</strong> A comprehensive library for creating static, animated, and interactive visualizations in Python.</li>
+            <li><strong>seaborn:</strong> A statistical data visualization library based on matplotlib that provides a high-level interface for drawing attractive and informative graphics.</li>
+        </ul>
+
+        <h2>Benefits of Using Our Application</h2>
+        <ul>
+            <li><strong>User-Friendly Interface:</strong> Simple and intuitive design that makes data analysis easy for users of all skill levels.</li>
+            <li><strong>Comprehensive Data Analysis:</strong> Perform a wide range of statistical and exploratory data analyses with ease.</li>
+            <li><strong>Powerful Visualizations:</strong> Create various plots to visually explore and present your data effectively.</li>
+            <li><strong>Seamless Integration:</strong> Integrates well with popular data analysis libraries, ensuring a smooth workflow.</li>
+        </ul>
+
+        <h2>Future Plans</h2>
+        <p>We are continuously working on enhancing our application. Upcoming features include:</p>
+        <ul>
+            <li><strong>Advanced Data Analytics:</strong> Adding more advanced statistical analysis and machine learning features.</li>
+            <li><strong>Enhanced Visualization Options:</strong> Introducing new and interactive visualization tools.</li>
+            <li><strong>Data Export Options:</strong> Allowing users to export their analysis results and visualizations in various formats.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
+
+{% endblock %}

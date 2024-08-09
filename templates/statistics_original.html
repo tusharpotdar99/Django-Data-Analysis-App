@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics for Cleaned DataFrame</title>
+<link rel="stylesheet" href="{% static 'stats.css'%}">
+</head>
+<body>
+    <header>
+        <h1>Summary Statistics</h1>
+    </header>
+    <main>
+        {% if num_stats %}
+            <h2>Numerical Data Summary</h2>
+            <div>
+                {{ num_stats|safe }}
+            </div>
+        {% else %}
+            <p>No numerical data available.</p>
+        {% endif %}
+
+        {% if cat_stats %}
+            <h2>Categorical Data Summary</h2>
+            <div>
+                {{ cat_stats|safe }}
+            </div>
+        {% else %}
+            <p>No categorical data available.</p>
+        {% endif %}
+    </main>
+
+</body>
+</html>
+
+{% endblock %}

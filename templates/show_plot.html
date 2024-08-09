@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Plot</title>
+    <link rel="stylesheet" href="{% static 'show_plot.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Generate Plot</h1>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <form method="post" action="{% url 'custom_plot' %}">
+                {% csrf_token %}
+                <label for="action">Select Plot Type:</label>
+                <select id="action" name="action" required>
+                    <option value="scatterplot">Scatterplot</option>
+                    <option value="barplot">Barplot</option>
+                    <option value="histogram">Histogram</option>
+                    <option value="piechart">Pie Chart</option>
+                    <option value="boxplot">Boxplot</option>
+                    <option value="heatmap">Heatmap</option>
+                    <option value="lineplot">Line Plot</option>
+                </select>
+
+                <label for="column1">Select First Column:</label>
+                <select id="column1" name="column1" required>
+                    {% for column in columns %}
+                        <option value="{{ column }}">{{ column }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="column2">Select Second Column (if applicable):</label>
+                <select id="column2" name="column2">
+                    <option value="">None</option>
+                    {% for column in columns %}
+                        <option value="{{ column }}">{{ column }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">Generate Plot</button>
+            </form>
+        </div>
+
+        {% if image_data %}
+            <div class="container">
+                <img src="data:image/png;base64,{{ image_data|safe }}" alt="Plot" class="plot-img">
+                <a href="{% url 'custom_plot' %}" class="button">Generate New Plot</a>
+                <a href="{% url 'data' %}" class="back-link">Back to Homepage</a>
+            </div>
+        {% endif %}
+        <a href="{% url 'data' %}" class="back-link">Back to Homepage</a>
+
+    </div>
+
+</body>
+</html>
+
+{% endblock %}

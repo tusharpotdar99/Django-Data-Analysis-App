@@ -1,0 +1,76 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Django Data Analysis App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="jumbotron mt-5">
+            <h1 class="display-4">About Django Data Analysis App</h1>
+            <p class="lead">Welcome to the Django Data Analysis App! Our goal is to simplify data analysis and visualization by providing an easy-to-use web application.</p>
+        </div>
+
+        <section class="section">
+            <h2>Project Overview</h2>
+            <p>The Django Data Analysis App is a web-based tool designed to help users upload CSV files, perform data analysis, and visualize the results. Built with Django, pandas, and matplotlib/seaborn, this app provides a straightforward interface for data processing and visualization.</p>
+        </section>
+
+        <section class="section">
+            <h2>Features</h2>
+            <ul>
+                <li><strong>File Upload:</strong> Easily upload CSV files through a user-friendly form.</li>
+                <li><strong>Data Analysis:</strong> View the first few rows, calculate summary statistics, and handle missing values.</li>
+                <li><strong>Data Visualization:</strong> Generate and view histograms and other plots to gain insights into your data.</li>
+                <li><strong>User Interface:</strong> A responsive and intuitive design ensures a smooth user experience.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Technologies Used</h2>
+            <ul>
+                <li><strong>Django:</strong> A high-level Python web framework for building the application.</li>
+                <li><strong>pandas:</strong> A library for data manipulation and analysis.</li>
+                <li><strong>matplotlib:</strong> A plotting library for creating static, animated, and interactive visualizations.</li>
+                <li><strong>seaborn:</strong> A statistical data visualization library based on matplotlib.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Our Team</h2>
+            <p>Our team consists of dedicated developers and data scientists who are passionate about making data analysis accessible and easy to use. We strive to continuously improve and enhance the application to meet the needs of our users.</p>
+        </section>
+
+        <section class="section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or feedback about the Django Data Analysis App, please get in touch with us:</p>
+            <ul>
+                <li>Email: <a href="mailto:info@myproject.com">info@myproject.com</a></li>
+                <li>Phone: (123) 456-7890</li>
+            </ul>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+{% include 'footer.html' %}

@@ -1,0 +1,138 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    color: #000000;
+}
+
+h1 {
+    font-size: 28px;
+    border-bottom: 2px solid #021830;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 22px;
+    margin-top: 40px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+h3 {
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+h4 {
+    font-size: 16px;
+    margin-top: 15px;
+    color: #333;
+}
+
+/* Paragraphs */
+p {
+    margin: 10px 0;
+}
+
+/* Forms */
+form {
+    margin-top: 20px;
+    text-align: center; /* Center align the form elements */
+}
+
+/* Tables */
+table {
+    width: 80%;
+    margin: 0 auto 20px auto; /* Center the table */
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center; /* Center align text in cells */
+    transition: background-color 0.3s ease;
+    color: #000; /* Black font color for table content */
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Specific column widths */
+.table-col-1 {
+    width: 30%;
+}
+
+.table-col-2 {
+    width: 30%;
+}
+
+.table-col-3 {
+    width: 40%;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0056b3; /* Dark blue background */
+    color: #fff; /* White text color */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Maintain size */
+    margin: 10px; /* Space between buttons */
+    text-align: center; /* Center text */
+    width: 200px; /* Consistent width */
+}
+
+button:hover {
+    background-color: #004494; /* Slightly darker blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    h4 {
+        font-size: 14px;
+    }
+
+    table {
+        font-size: 14px;
+        width: 100%; /* Make table full width on smaller screens */
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}

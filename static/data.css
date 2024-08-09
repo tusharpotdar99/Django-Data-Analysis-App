@@ -1,0 +1,126 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 1em;
+}
+#csv-data-table {
+    width: 100%;
+    max-width: 800px;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+#csv-data-table thead {
+    background-color: #39444f;
+    color: #ecf0f1;
+}
+#csv-data-table th, #csv-data-table td {
+    padding: 0.75em;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+#csv-data-table th {
+    cursor: pointer;
+    font-weight: 700;
+}
+#csv-data-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+#csv-data-table tbody tr:hover {
+    background-color: #e1e1e1;
+}
+.no-data {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+}
+.controls {
+    margin-bottom: 1em;
+}
+.controls select, .controls button {
+    padding: 0.5em;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-right: 1em;
+}
+.controls button {
+    background-color: #808080	;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.controls button:hover {
+    background-color: #808080;
+}
+
+
+.container {
+    align-items: center;
+    padding: 200px;
+    max-width: 1200px;
+    margin: 100 ;
+}
+
+.links {
+    display: block;
+    background-color: #10161b; /* Grey */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.link-text {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.link-text-hover:hover {
+    text-decoration: underline;
+}
+
+.description {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #ddd; /* Lighter grey for descriptions */
+}
+
+.custom_plot {
+    display: block;
+    background-color: #5a6268; /* Slightly darker grey for distinction */
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.custom_link-text {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.custom_link-text-hover:hover {
+    text-decoration: underline;
+}
+
+.custom_description {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #ddd; /* Lighter grey for descriptions */
+}

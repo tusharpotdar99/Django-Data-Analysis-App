@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="{% static 'statistics.css' %}">
+</head>
+<body>
+
+    <h1>DataFrame Detailed Statistics</h1>
+
+    <h2>Shape and Size</h2>
+    <p><strong>Shape:</strong> {{ shape }}</p>
+    <p><strong>Size:</strong> {{ size }}</p>
+
+    <h2>Missing and Duplicate Values</h2>
+    <p><strong>Missing Values:</strong></p>
+    <table class="statistics-table">
+        <thead class="table-header">
+            <tr>
+                <th class="table-col-1">Column</th>
+                <th class="table-col-2">Missing Value Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for col, count in missing_values.items %}
+                <tr class="table-row">
+                    <td>{{ col }}</td>
+                    <td>{{ count }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><strong>Duplicate Count:</strong> {{ duplicate_count }}</p>
+
+    {% if num_stats %}
+    {% if num_stats %}
+    <h2>Numerical Statistics</h2>
+    <table class="statistics-table">
+        <thead class="table-header">
+            <tr>
+                <th class="table-col-1">Column</th>
+                <th class="table-col-2">Statistic</th>
+                <th class="table-col-3">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for col, stats in num_stats.items %}
+                {% for stat_name, value in stats.items %}
+                    <tr class="table-row">
+                        {% if forloop.first %}
+                            <td rowspan="{{ stats|length }}">{{ col }}</td>
+                        {% endif %}
+                        <td>{{ stat_name }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+<h3>Variance</h3>
+<table class="statistics-table">
+    <thead class="table-header">
+        <tr>
+            <th class="table-col-1">Column</th>
+            <th class="table-col-1">Variance</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for col, var in variance.items %}
+        <tr class="table-row">
+            <td>{{ col }}</td>
+            <td>{{ var|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    <h3>Interquartile Range (IQR)</h3>
+    <table class="statistics-table">
+        <thead class="table-header">
+            <tr>
+                <th class="table-col-1">Column</th>
+                <th class="table-col-2">Interquartile Range (IQR)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for col, iqr_value in iqr.items %}
+            <tr  class="table-row">
+                <td>{{ col }}</td>
+                <td>{{ iqr_value }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No numerical data available.</p>
+    {% endif %}
+
+    {% if cat_stats %}
+    <h2>Categorical Statistics</h2>
+    <table  class="statistics-table">
+        <thead class="table-header">
+            <tr>
+                <th class="table-col-1">Column</th>
+                <th class="table-col-2">Statistic</th>
+                <th class="table-col-3">Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for col, stats in cat_stats.items %}
+                {% for stat_name, value in stats.items %}
+                    <tr class="table-row">
+                        {% if forloop.first %}
+                            <td rowspan="{{ stats|length }}">{{ col }}</td>
+                        {% endif %}
+                        <td>{{ stat_name }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No categorical data available.</p>
+{% endif %}
+    <h3>Value Counts and Percentages</h3>
+    <table  class="statistics-table">
+        <thead class="table-header">
+            <tr>
+                <th class="table-col-1">Category</th>
+                <th class="table-col-2">Count</th>
+                <th class="table-col-3">Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for col, counts in value_counts.items %}
+                <tr class="table-row">
+                    <td colspan="3" style="background-color: #f8f9fa; font-weight: bold;">{{ col }}</td>
+                </tr>
+                {% for category, count in counts.items %}
+                    <tr  class="table-row">
+                        <td>{{ category }}</td>
+                        <td>{{ count }}</td>
+                        <td>
+                            {% for item in percentages %}
+                                {% if item.column == col and item.category == category %}
+                                    {{ item.percentage|floatformat:2 }}%
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No categorical data available.</p>
+    {% endif %}
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handle Missing Values</title>
+    <link rel="stylesheet" href="{% static 'handle_missing_values.css' %}"> 
+
+</head>
+<body>
+
+    <h1>Handle Missing Values</h1>
+
+    <h2>Original DataFrame Missing Values</h2>
+    {{ missing_values_table|safe }}
+
+    <h2>Actions</h2>
+    <form method="post" action="{% url 'handle_missing_values' %}">
+        {% csrf_token %}
+        <button type="submit" name="action" value="drop_column">Drop Columns with Missing Values</button>
+        <button type="submit" name="action" value="drop_row">Drop Rows with Missing Values</button>
+        <button type="submit" name="action" value="fill_mean">Fill Missing Values with Mean</button>
+        <button type="submit" name="action" value="fill_median">Fill Missing Values with Median</button>
+        <button type="submit" name="action" value="fill_mode">Fill Missing Values with Mode</button>
+        <button type="submit" name="action" value="fill_forward">Forward Fill Missing Values</button>
+        <button type="submit" name="action" value="fill_backward">Backward Fill Missing Values</button>
+    </form>
+
+    <h2>Cleaned DataFrame Missing Values</h2>
+    {{ cleaned_missing_values_table|safe }}
+
+</body>
+</html>
+
+{% endblock %}
