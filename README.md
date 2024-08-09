@@ -35,7 +35,7 @@ Follow these steps to set up and run the project:
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/tusharpotdar99/Django-Data.Analysis-App
 
 2. **Navigate to the Project Directory:**
    cd django-data-analysis-repository
